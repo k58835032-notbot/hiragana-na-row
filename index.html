@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>Hiragana NA-row</title>
+  <style>
+    body {
+      font-family: "Hiragino Kaku Gothic Pro", "Meiryo", sans-serif;
+    }
+    table {
+      border-collapse: collapse;
+      margin: 40px auto;
+      font-size: 2.5rem;
+      text-align: center;
+      background-color: #fff8dc;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    th, td {
+      border: 1px solid #aaa;
+      padding: 20px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    td:hover {
+      background-color: #ffee58;
+    }
+  </style>
+</head>
+<body>
+  <table>
+    <thead>
+      <tr>
+        <th>na</th>
+        <th>ni</th>
+        <th>nu</th>
+        <th>ne</th>
+        <th>no</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td data-sound="na">な</td>
+        <td data-sound="ni">に</td>
+        <td data-sound="nu">ぬ</td>
+        <td data-sound="ne">ね</td>
+        <td data-sound="no">の</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Audio files -->
+  <audio id="na" src="https://raw.githubusercontent.com/digitaIfabric/japanese/master/Hiragana-Samples/%E3%81%AA.mp3"></audio>
+  <audio id="ni" src="https://raw.githubusercontent.com/digitaIfabric/japanese/master/Hiragana-Samples/%E3%81%AB.mp3"></audio>
+  <audio id="nu" src="https://raw.githubusercontent.com/digitaIfabric/japanese/master/Hiragana-Samples/%E3%81%AC.mp3"></audio>
+  <audio id="ne" src="https://raw.githubusercontent.com/digitaIfabric/japanese/master/Hiragana-Samples/%E3%81%AD.mp3"></audio>
+  <audio id="no" src="https://raw.githubusercontent.com/digitaIfabric/japanese/master/Hiragana-Samples/%E3%81%AE.mp3"></audio>
+
+  <script>
+    document.querySelectorAll('td[data-sound]').forEach(cell => {
+      cell.addEventListener('click', () => {
+        const soundId = cell.getAttribute('data-sound');
+        const audio = document.getElementById(soundId);
+        if (audio) {
+          audio.currentTime = 0;
+          audio.play();
+        }
+      });
+    });
+  </script>
+</body>
+</html>
